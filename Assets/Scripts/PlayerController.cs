@@ -28,4 +28,9 @@ public class PlayerController : MonoBehaviour
 
         transform.Translate(horizontal, vertical, 0);
     }
+
+    private void Fire()
+    {
+        //Shoot the jam
+    }
 }
