@@ -22,6 +22,16 @@ public class Projectile : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter2D(Collider2D collision) {
+        string tag = collision.gameObject.tag;
+        if (tag == "Player") {
+            return;
+        } else if (tag == "Enemy") {
+            collision.GetComponent<Enemy>().TakeDamage(damage);
+        }
+        Destroy(gameObject);
+    }
+
     public void Shoot() {
         GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(speed, 0));
     }

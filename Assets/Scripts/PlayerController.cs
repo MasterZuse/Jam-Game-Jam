@@ -26,6 +26,10 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         SpaceButton();
+
+        if (bagOpen) {
+            sprite.flipX = Mathf.Abs(GetMouseAngle()) > 90;
+        }
     }
 
 
@@ -64,11 +68,14 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Fire() {
-        var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
+        var angle = GetMouseAngle();
         Projectile p = Instantiate(currentProjectile, transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
         p.Shoot();
+    }
+
+    private float GetMouseAngle() {
+        var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        return Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
     }
 
     private void FinishUnsling() {
