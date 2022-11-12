@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] float speed = 10.0f;
+    [SerializeField] Projectile currentProjectile;
 
     bool canMove = true;
     bool bagOpen = false;
@@ -62,9 +63,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Fire()
-    {
-        
+    private void Fire() {
+        var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        Projectile p = Instantiate(currentProjectile, transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
+        p.Shoot();
     }
 
     private void FinishUnsling() {
