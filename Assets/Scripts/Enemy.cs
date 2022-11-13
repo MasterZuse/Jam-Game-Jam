@@ -35,7 +35,8 @@ public class Enemy : MonoBehaviour
     }
 
     private void ChasePlayer() {
-
+        GameObject playerObj = GameObject.FindGameObjectsWithTag("Player")[0];
+        transform.position = Vector3.MoveTowards(transform.position, playerObj.transform.position, speed * Time.deltaTime);
     }
 
     private void CheckPlayerDistance() {

@@ -943,14 +943,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Slime
       objectReference: {fileID: 0}
-    - target: {fileID: 1729640810283591430, guid: c925fa5e73f196e48a7ad72f0e484b7c, type: 3}
-      propertyPath: patrolDistance
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1729640810283591430, guid: c925fa5e73f196e48a7ad72f0e484b7c, type: 3}
-      propertyPath: patrolDirection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1729640810283591432, guid: c925fa5e73f196e48a7ad72f0e484b7c, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1004,29 +996,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2400841952117899524, guid: 25a7c9daa1faa734d8a94ca16abfb056, type: 3}
-      propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2400841952117899524, guid: 25a7c9daa1faa734d8a94ca16abfb056, type: 3}
-      propertyPath: patrolDistance
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2400841952117899524, guid: 25a7c9daa1faa734d8a94ca16abfb056, type: 3}
-      propertyPath: patrolDirection
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 2400841952117899525, guid: 25a7c9daa1faa734d8a94ca16abfb056, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2400841952117899525, guid: 25a7c9daa1faa734d8a94ca16abfb056, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.32
+      value: -3.64
       objectReference: {fileID: 0}
     - target: {fileID: 2400841952117899525, guid: 25a7c9daa1faa734d8a94ca16abfb056, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.75
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 2400841952117899525, guid: 25a7c9daa1faa734d8a94ca16abfb056, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1136,11 +1116,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3777668086417184640, guid: 8f6c9989a0fe7c1428e6fb4a251a4d12, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.44
+      value: -2.66
       objectReference: {fileID: 0}
     - target: {fileID: 3777668086417184640, guid: 8f6c9989a0fe7c1428e6fb4a251a4d12, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.06
+      value: -2.93
       objectReference: {fileID: 0}
     - target: {fileID: 3777668086417184640, guid: 8f6c9989a0fe7c1428e6fb4a251a4d12, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1173,18 +1153,6 @@ PrefabInstance:
     - target: {fileID: 3777668086417184640, guid: 8f6c9989a0fe7c1428e6fb4a251a4d12, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3777668086417184642, guid: 8f6c9989a0fe7c1428e6fb4a251a4d12, type: 3}
-      propertyPath: speed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3777668086417184642, guid: 8f6c9989a0fe7c1428e6fb4a251a4d12, type: 3}
-      propertyPath: health
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 3777668086417184642, guid: 8f6c9989a0fe7c1428e6fb4a251a4d12, type: 3}
-      propertyPath: patrolDistance
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3777668086417184647, guid: 8f6c9989a0fe7c1428e6fb4a251a4d12, type: 3}
       propertyPath: m_Name
