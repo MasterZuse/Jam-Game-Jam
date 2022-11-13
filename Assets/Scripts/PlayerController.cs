@@ -50,10 +50,6 @@ public class PlayerController : MonoBehaviour
         }
 
         float greatestSpeed = Mathf.Max(Mathf.Abs(horizontal), Mathf.Abs(vertical));
-        if (greatestSpeed > 0) {
-            bagOpen = false;
-        }
-
         animator.SetFloat("Speed", greatestSpeed);
     }
 
@@ -63,6 +59,8 @@ public class PlayerController : MonoBehaviour
                 canMove = false;
                 animator.SetBool("Unsling", true);
                 animator.SetFloat("Speed", 0);
+            } else {
+                animator.SetBool("Sling", true);
             }
         }
     }
@@ -80,8 +78,13 @@ public class PlayerController : MonoBehaviour
 
     private void FinishUnsling() {
         bagOpen = true;
-        canMove = true;
         animator.SetBool("Unsling", false);
+    }
+
+    private void FinishSling() {
+        animator.SetBool("Sling", false);
+        canMove = true;
+        bagOpen = false;
     }
 
 }
