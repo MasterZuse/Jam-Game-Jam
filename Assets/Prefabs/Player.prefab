@@ -218,6 +218,7 @@ MonoBehaviour:
   loopStart: 11.25
   loopEnd: 59.25
   source: {fileID: 1959681816}
+  secondClip: {fileID: 8300000, guid: 7d4ec751c707ae047ac0b295bdb1f786, type: 3}
 --- !u!1 &2908683583481189726
 GameObject:
   m_ObjectHideFlags: 0
