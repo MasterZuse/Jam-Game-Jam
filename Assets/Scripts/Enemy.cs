@@ -15,19 +15,37 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] int health = 50;
     [SerializeField] float speed = 2f;
+    [SerializeField] float visionDistance = 3f;
     [SerializeField] Direction patrolDirection;
     [SerializeField] float patrolDistance;
     float distanceLeft;
+    bool spottedPlayer = false;
 
     void Start() {
         distanceLeft = patrolDistance;
     }
 
     void Update() {
-        Patrol();
+        if (spottedPlayer) {
+            ChasePlayer();
+        } else {
+            Patrol();
+            CheckPlayerDistance();
+        }
     }
 
-    public void Patrol() {
+    private void ChasePlayer() {
+
+    }
+
+    private void CheckPlayerDistance() {
+        GameObject playerObj = GameObject.FindGameObjectsWithTag("Player")[0];
+        if (Vector3.Distance(transform.position, playerObj.transform.position) <= visionDistance) {
+            spottedPlayer = true;
+        }
+    }
+
+    private void Patrol() {
         float movement = speed * Time.deltaTime;
         if (patrolDirection == Direction.LEFT) {
             transform.Translate(-movement, 0, 0);
