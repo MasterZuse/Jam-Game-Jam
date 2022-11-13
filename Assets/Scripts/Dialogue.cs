@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 public class Dialogue : MonoBehaviour {
-    public TextMeshProUGUI textComponent
+    public TextMeshProUGUI textComponent;
     public string[] lines; 
     public float textSpeed;
     private int index;
@@ -15,7 +15,7 @@ public class Dialogue : MonoBehaviour {
     void Update(){
         if(Input.GetMouseButtonDown(0)){
             if(textComponent.text == lines[index]){
-                NextLine()
+                NextLine();
             }
             else{
                 StopAllCoroutines();
@@ -24,25 +24,25 @@ public class Dialogue : MonoBehaviour {
         }
     }
     void StartDialogue(){
-        index = 0
-        startCoroutine(TypeLine());
+        index = 0;
+        StartCoroutine(TypeLine());
     }
 
     IEnumerator TypeLine(){
-        foreach (char c in lines[index].toCharArray())
+        foreach (char c in lines[index].ToCharArray())
         {
             textComponent.text += c;
-            yeild return new WaitForSeconds(textSpeed);
+            yield return new WaitForSeconds(textSpeed);
         }
     }
     void NextLine(){
         if(index < lines.Length - 1){
-            index ++
+            index++;
             textComponent.text = string.Empty;
-            startCoroutine(TypeLine());
+            StartCoroutine(TypeLine());
         }
         else{
-            gameObject.setActive(false);
+            gameObject.SetActive(false);
         }
     }
 }

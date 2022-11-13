@@ -25827,7 +25827,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 30
-  attackSpeed: 2.5
+  shortCooldown: 0.75
+  longCooldown: 3
+  projectile: {fileID: 995007873226717147, guid: b6be8d6cfe598e74488ae5b561b6327d, type: 3}
 --- !u!95 &1252152164
 Animator:
   serializedVersion: 4
@@ -26250,6 +26252,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 519420033, guid: 23f8e2b6c53e80a4fbadd63ae37d9690, type: 3}
+      propertyPath: m_RefResolutionX
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420033, guid: 23f8e2b6c53e80a4fbadd63ae37d9690, type: 3}
+      propertyPath: m_RefResolutionY
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 2908683583481189714, guid: 23f8e2b6c53e80a4fbadd63ae37d9690, type: 3}
       propertyPath: m_RootOrder
       value: 0

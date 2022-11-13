@@ -96,6 +96,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int amount, float stunAmount) {
         health -= amount;
         stun += stunAmount;
+        spottedPlayer = true;
         if (health <= 0) {
             Destroy(gameObject);
         }

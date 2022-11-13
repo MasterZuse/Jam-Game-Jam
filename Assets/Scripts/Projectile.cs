@@ -11,7 +11,19 @@ public class Projectile : MonoBehaviour
     [SerializeField] bool canHitPlayer = false;
 
     bool active = true;
+    float lifeSpan = 1.3f;
 
+
+    private void Update() {
+        if (active) { 
+            lifeSpan -= Time.deltaTime;
+            if (lifeSpan < 0) {
+                active = false;
+                GetComponent<Animator>().SetBool("Splat", true);
+                GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            }
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (!active) {

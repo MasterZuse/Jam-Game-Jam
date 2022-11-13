@@ -6,20 +6,28 @@ public class BossController : MonoBehaviour
 {
 
     [SerializeField] int health = 150;
-    [SerializeField] float attackSpeed = 2.5f;
+    [SerializeField] float shortCooldown = 0.75f;
+    [SerializeField] float longCooldown = 3f;
+
+    [SerializeField] Projectile projectile;
+
+    bool fightActive = false;
+    float currentCooldown;
+    int nextCoolDown = 0;
 
     Animator animator;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         animator = GetComponent<Animator>();
+        currentCooldown = longCooldown * 2;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        if (fightActive) {
+            currentCooldown = Mathf.Max(currentCooldown - Time.deltaTime, 0);
+        }
     }
 
     public void TakeDamage(int amount) {
