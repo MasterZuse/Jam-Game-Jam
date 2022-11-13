@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] int damage = 10;
     [SerializeField] float speed = 250f;
     [SerializeField] float stun = 0.2f;
+    [SerializeField] bool canHitPlayer = false;
 
     bool active = true;
 
@@ -18,9 +19,15 @@ public class Projectile : MonoBehaviour
         }
         string tag = collision.gameObject.tag;
         if (tag == "Player") {
-            return;
+            if (canHitPlayer) {
+                collision.GetComponent<PlayerController>().TakeDamage(1);
+            } else {
+                return;
+            }
         } else if (tag == "Enemy") {
             collision.GetComponent<Enemy>().TakeDamage(damage, stun);
+        } else if (tag == "Boss" && !canHitPlayer) {
+            collision.GetComponent<BossController>().TakeDamage(damage);
         }
         active = false;
         GetComponent<Animator>().SetBool("Splat", true);
