@@ -7,9 +7,14 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float speed = 10.0f;
     [SerializeField] Projectile currentProjectile;
+    [SerializeField] int health = 5;
+    int maxHealth;
+
+    [SerializeField] HealthBar healthBar;
 
     bool canMove = true;
     bool bagOpen = false;
+    float invincibility = 0;
 
     Animator animator;
     SpriteRenderer sprite;
@@ -19,6 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        maxHealth = health;
     }
 
     // Update is called once per frame
@@ -30,6 +36,8 @@ public class PlayerController : MonoBehaviour
         if (bagOpen) {
             sprite.flipX = Mathf.Abs(GetMouseAngle()) > 90;
         }
+
+        invincibility = Mathf.Max(invincibility - Time.deltaTime, 0);
     }
 
 
@@ -54,7 +62,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void SpaceButton() {
-        if (Input.GetAxisRaw("Jump") > 0) {
+        if (Input.GetAxisRaw("Jump") > 0 && health > 0) {
             if (!bagOpen) {
                 canMove = false;
                 animator.SetBool("Unsling", true);
@@ -85,6 +93,25 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Sling", false);
         canMove = true;
         bagOpen = false;
+    }
+
+    public void TakeDamage(int amount) {
+        if (invincibility > 0) {
+            return;
+        }
+        invincibility += 1.25f;
+        health = Mathf.Max(health - amount, 0);
+        //healthBar.UpdateHealthBar(health, maxHealth);
+        if (health <= 0) {
+            animator.SetBool("Dead", true);
+            canMove = false;
+            bagOpen = false;
+        }
+    }
+
+    private void StayDead() {
+        animator.SetBool("Stay Dead", true);
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
 }

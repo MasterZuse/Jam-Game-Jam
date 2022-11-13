@@ -9,7 +9,6 @@ public enum Direction {
     DOWN
 }
 
-
 public class Enemy : MonoBehaviour
 {
 
@@ -36,6 +35,16 @@ public class Enemy : MonoBehaviour
         } else {
             Patrol();
             CheckPlayerDistance();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (stun > 0) {
+            return;
+        }
+        string tag = collision.gameObject.tag;
+        if (tag == "Player") {
+            collision.gameObject.GetComponent<PlayerController>().TakeDamage(1);
         }
     }
 

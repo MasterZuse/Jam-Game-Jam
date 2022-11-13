@@ -270,6 +270,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   currentProjectile: {fileID: 6850895629724243418, guid: 817ce0f3ef1e53a4aa1d098b119bc10b, type: 3}
+  health: 3
+  healthBar: {fileID: 0}
 --- !u!61 &2908683583481189724
 BoxCollider2D:
   m_ObjectHideFlags: 0
