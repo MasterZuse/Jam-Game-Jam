@@ -10,10 +10,9 @@ public class Dialogue : MonoBehaviour {
     private int index;
     void Start(){
         textComponent.text = string.Empty;
-        StartDialogue();
     }
     void Update(){
-        if(Input.GetMouseButtonDown(0)){
+        if(Input.GetButtonDown("Jump")){
             if(textComponent.text == lines[index]){
                 NextLine();
             }
@@ -42,7 +41,15 @@ public class Dialogue : MonoBehaviour {
             StartCoroutine(TypeLine());
         }
         else{
-            gameObject.SetActive(false);
+            textComponent.text = string.Empty;
+            GameObject playerObj = GameObject.FindGameObjectsWithTag("Player")[0];
+            playerObj.GetComponent<PlayerController>().ToggleSignInteract();
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Player") {
+            StartDialogue();
+            collision.GetComponent<PlayerController>().ToggleSignInteract();
         }
     }
 }

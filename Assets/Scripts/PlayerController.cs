@@ -14,7 +14,9 @@ public class PlayerController : MonoBehaviour
 
     bool canMove = true;
     bool bagOpen = false;
+    bool inTextBox = false;
     float invincibility = 0;
+    float bagCooldown = 0f;
 
     Animator animator;
     SpriteRenderer sprite;
@@ -38,6 +40,8 @@ public class PlayerController : MonoBehaviour
         }
 
         invincibility = Mathf.Max(invincibility - Time.deltaTime, 0);
+
+        bagCooldown = Mathf.Max(bagCooldown - Time.deltaTime, 0);
     }
 
 
@@ -62,8 +66,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private void SpaceButton() {
-        if (Input.GetAxisRaw("Jump") > 0 && health > 0) {
-            if (!bagOpen) {
+        if (Input.GetAxisRaw("Jump") > 0 && health > 0 && !inTextBox) {
+            if (!bagOpen && bagCooldown == 0) {
                 canMove = false;
                 animator.SetBool("Unsling", true);
                 animator.SetFloat("Speed", 0);
@@ -112,6 +116,12 @@ public class PlayerController : MonoBehaviour
     private void StayDead() {
         animator.SetBool("Stay Dead", true);
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+
+    public void ToggleSignInteract() {
+        canMove = !canMove;
+        inTextBox = !inTextBox;
+        bagCooldown = 0.3f;
     }
 
 }
