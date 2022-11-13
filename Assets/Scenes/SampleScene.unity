@@ -1682,6 +1682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -9297,6 +9298,14 @@ PrefabInstance:
       propertyPath: m_CropFrameY
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 519420033, guid: 23f8e2b6c53e80a4fbadd63ae37d9690, type: 3}
+      propertyPath: m_RefResolutionX
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420033, guid: 23f8e2b6c53e80a4fbadd63ae37d9690, type: 3}
+      propertyPath: m_RefResolutionY
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 2908683583481189714, guid: 23f8e2b6c53e80a4fbadd63ae37d9690, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -9401,6 +9410,14 @@ PrefabInstance:
     - target: {fileID: 3777668086417184640, guid: 8f6c9989a0fe7c1428e6fb4a251a4d12, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3777668086417184642, guid: 8f6c9989a0fe7c1428e6fb4a251a4d12, type: 3}
+      propertyPath: patrolDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3777668086417184642, guid: 8f6c9989a0fe7c1428e6fb4a251a4d12, type: 3}
+      propertyPath: patrolDirection
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3777668086417184647, guid: 8f6c9989a0fe7c1428e6fb4a251a4d12, type: 3}
       propertyPath: m_Name

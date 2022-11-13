@@ -20,12 +20,17 @@ public class Enemy : MonoBehaviour
     [SerializeField] float patrolDistance;
     float distanceLeft;
     bool spottedPlayer = false;
+    float stun = 0f;
 
     void Start() {
         distanceLeft = patrolDistance;
     }
 
     void Update() {
+        if (stun > 0) {
+            stun = Mathf.Max(stun - Time.deltaTime, 0);
+            return;
+        }
         if (spottedPlayer) {
             ChasePlayer();
         } else {
@@ -79,8 +84,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int amount) {
+    public void TakeDamage(int amount, float stunAmount) {
         health -= amount;
+        stun += stunAmount;
         if (health <= 0) {
             Destroy(gameObject);
         }

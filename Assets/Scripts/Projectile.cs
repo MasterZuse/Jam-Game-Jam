@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] int damage = 10;
     [SerializeField] float speed = 250f;
+    [SerializeField] float stun = 0.2f;
 
     bool active = true;
 
@@ -19,7 +20,7 @@ public class Projectile : MonoBehaviour
         if (tag == "Player") {
             return;
         } else if (tag == "Enemy") {
-            collision.GetComponent<Enemy>().TakeDamage(damage);
+            collision.GetComponent<Enemy>().TakeDamage(damage, stun);
         }
         active = false;
         GetComponent<Animator>().SetBool("Splat", true);
