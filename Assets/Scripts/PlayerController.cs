@@ -123,6 +123,7 @@ public class PlayerController : MonoBehaviour
         canMove = !canMove;
         inTextBox = !inTextBox;
         bagCooldown = 0.3f;
+        animator.SetFloat("Speed", 0);
     }
 
     public void resetGame() {
