@@ -3633,7 +3633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -3704,8 +3703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4277125442909033425, guid: 6f74e26b4f835204d9b7114aa6278e6a, type: 3}
       propertyPath: lines.Array.data[3]
-      value: "You: That\u2019s nice. Well, see you aroundYou: That\u2019s nice. Well,
-        see you around"
+      value: "You: That\u2019s nice. Well, see you around"
       objectReference: {fileID: 0}
     - target: {fileID: 4277125442909033430, guid: 6f74e26b4f835204d9b7114aa6278e6a, type: 3}
       propertyPath: m_Sprite
@@ -3940,8 +3938,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
