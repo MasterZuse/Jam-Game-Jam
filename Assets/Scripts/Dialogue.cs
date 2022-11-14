@@ -5,8 +5,8 @@ using TMPro;
 
 public class Dialogue : MonoBehaviour {
     public TextMeshProUGUI textComponent;
-    public string[] lines; 
-    public float textSpeed;
+    [SerializeField] string[] lines; 
+    [SerializeField] float textSpeed;
     private int index;
     void Start(){
         textComponent.text = string.Empty;
@@ -35,15 +35,17 @@ public class Dialogue : MonoBehaviour {
         }
     }
     void NextLine(){
-        if(index < lines.Length - 1){
+        if(index < lines.Length-1){
             index++;
             textComponent.text = string.Empty;
             StartCoroutine(TypeLine());
+            Debug.Log(index);
         }
         else{
             textComponent.text = string.Empty;
             GameObject playerObj = GameObject.FindGameObjectsWithTag("Player")[0];
             playerObj.GetComponent<PlayerController>().ToggleSignInteract();
+            Debug.Log(index);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision) {
