@@ -20,7 +20,7 @@ public class BossController : MonoBehaviour
 
     void Start() {
         animator = GetComponent<Animator>();
-        currentCooldown = longCooldown * 2;
+        currentCooldown = longCooldown;
         playerObj = GameObject.FindGameObjectsWithTag("Player")[0];
     }
 

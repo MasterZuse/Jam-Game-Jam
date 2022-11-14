@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -105,7 +106,7 @@ public class PlayerController : MonoBehaviour
         }
         invincibility += 1.25f;
         health = Mathf.Max(health - amount, 0);
-        //healthBar.UpdateHealthBar(health, maxHealth);
+        healthBar.UpdateHealthBar(health);
         if (health <= 0) {
             animator.SetBool("Dead", true);
             canMove = false;
@@ -122,6 +123,10 @@ public class PlayerController : MonoBehaviour
         canMove = !canMove;
         inTextBox = !inTextBox;
         bagCooldown = 0.3f;
+    }
+
+    public void resetGame() {
+        SceneManager.LoadScene("Town");
     }
 
 }

@@ -4,14 +4,18 @@ using UnityEngine;
 using TMPro;
 
 public class Dialogue : MonoBehaviour {
-    public TextMeshProUGUI textComponent;
+    [SerializeField] TextMeshProUGUI textComponent;
     [SerializeField] string[] lines; 
     [SerializeField] float textSpeed;
     private int index;
+    private bool active = false;
     void Start(){
         textComponent.text = string.Empty;
     }
     void Update(){
+        if (!active) {
+            return;
+        }
         if(Input.GetButtonDown("Jump")){
             if(textComponent.text == lines[index]){
                 NextLine();
@@ -25,6 +29,7 @@ public class Dialogue : MonoBehaviour {
     void StartDialogue(){
         index = 0;
         StartCoroutine(TypeLine());
+        active = true;
     }
 
     IEnumerator TypeLine(){
@@ -39,13 +44,12 @@ public class Dialogue : MonoBehaviour {
             index++;
             textComponent.text = string.Empty;
             StartCoroutine(TypeLine());
-            Debug.Log(index);
         }
         else{
             textComponent.text = string.Empty;
             GameObject playerObj = GameObject.FindGameObjectsWithTag("Player")[0];
             playerObj.GetComponent<PlayerController>().ToggleSignInteract();
-            Debug.Log(index);
+            active = false;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision) {

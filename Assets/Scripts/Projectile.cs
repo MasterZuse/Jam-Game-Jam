@@ -38,8 +38,14 @@ public class Projectile : MonoBehaviour
             }
         } else if (tag == "Enemy") {
             collision.GetComponent<Enemy>().TakeDamage(damage, stun);
-        } else if (tag == "Boss" && !canHitPlayer) {
-            collision.GetComponent<BossController>().TakeDamage(damage);
+        } else if (tag == "Boss") {
+            if (canHitPlayer) {
+                return;
+            } else {
+                collision.GetComponent<BossController>().TakeDamage(damage);
+            }
+        } else if (tag == "Projectile") {
+            return;
         }
         active = false;
         GetComponent<Animator>().SetBool("Splat", true);
